@@ -1,5 +1,5 @@
 """
-This program has been written to solve problem 4 on projecteuler.net
+This program has been written to solve problem 5 on projecteuler.net
 author: Jeremiah Lantzer
 """
 
