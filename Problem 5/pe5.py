@@ -21,6 +21,6 @@ while not_found and counter < sys.maxsize:
             count_check = 0
             break
 
-    if count_check == 20:
+    if count_check == divis_digits:
         not_found = False
         print("Final Number: " + str(counter))
