@@ -5,7 +5,7 @@ author: Jeremiah Lantzer
 
 grid = [
     [ 8,  2, 22, 97, 38, 15,  0, 40,  0, 75,  4,  5,  7, 78, 52, 12, 50, 77, 91,  8],
-    [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48,  4, 56, 62, 00],
+    [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48,  4, 56, 62,  0],
     [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30,  3, 49, 13, 36, 65],
     [52, 70, 95, 23,  4, 60, 11, 42, 69, 24, 68, 56,  1, 32, 56, 71, 37,  2, 36, 91],
     [22, 31, 16, 71, 51, 67, 63, 89, 41, 92, 36, 54, 22, 40, 40, 28, 66, 33, 13, 80],
@@ -32,9 +32,35 @@ for i in range(20):
     for j in range(20):
         if i < 17:
             temp_sum = grid[i][j] * grid[i+1][j] * grid[i+2][j] * grid[i+3][j]
+            if temp_sum > last_product:
+                last_product = temp_sum
+            if j < 17:
+                temp_sum = grid[i][j] * grid[i+1][j+1] * grid[i+2][j+2] * grid[i+3][j+3]
+                if temp_sum > last_product:
+                    last_product = temp_sum
         if i > 2:
             temp_sum = grid[i][j] * grid[i-1][j] * grid[i-2][j] * grid[i-3][j]
+            if temp_sum > last_product:
+                last_product = temp_sum
+            if j > 2:
+                temp_sum = grid[i][j] * grid[i-1][j-1] * grid[i-2][j-2] * grid[i-3][j-3]
+                if temp_sum > last_product:
+                    last_product = temp_sum
         if j < 17:
             temp_sum = grid[i][j] * grid[i][j+1] * grid[i][j+2] * grid[i][j+3]
+            if temp_sum > last_product:
+                last_product = temp_sum
+            if j < 2:
+                temp_sum = grid[i][j] * grid[i - 1][j + 1] * grid[i - 2][j + 2] * grid[i - 3][j + 3]
+                if temp_sum > last_product:
+                    last_product = temp_sum
         if j > 2:
             temp_sum = grid[i][j] * grid[i][j-1] * grid[i][j-2] * grid[i][j-3]
+            if temp_sum > last_product:
+                last_product = temp_sum
+            if i < 17:
+                temp_sum = grid[i][j] * grid[i + 1][j - 1] * grid[i + 2][j - 2] * grid[i + 3][j - 3]
+                if temp_sum > last_product:
+                    last_product = temp_sum
+
+print(last_product)
