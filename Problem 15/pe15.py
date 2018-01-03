@@ -2,8 +2,24 @@
 This program has been written to solve problem 15 on projecteuler.net
 author: Jeremiah Lantzer
 """
-value = 3
-grid_points = 9
-plot_lines = int(grid_points / 2)
-grid = [['o' for x in range(1, plot_lines)] for y in range(1, plot_lines)]
-print(grid)
+
+import time
+
+grid_size = 20
+
+
+def find_paths(size):
+    length = [1] * size
+
+    for i in range(size):
+        for j in range(i):
+            length[j] = length[j] + length[j - 1]
+        length[i] = 2 * length[i - 1]
+    return length[size - 1]
+
+
+start = time.time()
+result = find_paths(grid_size)
+elapsed = time.time() - start
+
+print("\nResult: %s \nFound in %s seconds" % (result, elapsed))
