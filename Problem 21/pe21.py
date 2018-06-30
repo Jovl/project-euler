@@ -25,7 +25,7 @@ def sum_divisors_results(num):
 def amicable_pairs(max_num):
     divisors_sum_list = []
     amicables_list = []
-    amicable_sum = 0
+
     for i in range(1, max_num + 1):
         divisors_sum_list.append(sum_divisors_results(i))
 
@@ -35,8 +35,6 @@ def amicable_pairs(max_num):
                 amicables_list.append(indx + 1)
                 print(indx + 1, num)
     print(amicables_list)
-    print(divisors_sum_list[219])
-    print(divisors_sum_list[283])
 
     return sum(amicables_list)
 
